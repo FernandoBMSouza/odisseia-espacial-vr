@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MissionSetting", menuName = "Mission")]
 public class MissionsObject : ScriptableObject
 {
+    [SerializeField] Canvas canvas;
     [SerializeField] string missionName;
     [SerializeField] string missionDescription;
-    [SerializeField] GameObject missionReward;
 
     public string MissionName
     {
@@ -16,9 +16,5 @@ public class MissionsObject : ScriptableObject
     public string MissionDescription
     {
         get { return missionDescription; }
-    }
-    public GameObject MissionReward
-    {
-        get { return missionReward; }
     }
 }
