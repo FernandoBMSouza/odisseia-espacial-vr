@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject wristUI;
     [SerializeField] private bool activeWristUI = true;
+    [SerializeField] private GameObject inventory;
+    [SerializeField] private GameObject pause;
 
     private void Start()
     {
@@ -19,7 +21,10 @@ public class PauseMenu : MonoBehaviour
     public void PauseButtonPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
+        {
             DisplayWristUI();
+            pause.SetActive(true);
+        }
     }
 
     public void DisplayWristUI()
@@ -53,5 +58,19 @@ public class PauseMenu : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void Inventory()
+    {
+        pause.SetActive(false);
+        inventory.SetActive(true);
+        Time.timeScale = 1;
+    }
+
+    public void InventoryReturn()
+    {
+        inventory.SetActive(false);
+        pause.SetActive(true);
+        Time.timeScale = 0;
     }
 }
