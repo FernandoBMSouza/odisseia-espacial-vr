@@ -13,15 +13,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Grip",
-                    "type": "Button",
-                    "id": "c308c6d6-b253-4692-b657-080314b54630",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -44,28 +35,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "MenuPressed",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7602ba14-683a-418f-9340-f627d812c0a2",
-                    "path": "<OculusTouchController>/gripPressed",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Grip",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a07e9541-0bc3-4213-91a7-2457ae591bcc",
-                    "path": "<XRSimulatedController>/gripButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Grip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
