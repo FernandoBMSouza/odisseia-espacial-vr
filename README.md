@@ -10,8 +10,8 @@ O jogo foi desenvolvido como parte de um projeto educacional e gamificado, ofere
 
 - José Ricardo da Silva Junior (se juntou em outubro de 2023)
 - Fernando Bento Moura de Souza (se juntou em outubro de 2023)
-- Gabriel Michel (se juntou em outubro de 2023)
-- Mateus Costa (se juntou em dezembro de 2023)
+- Gabriel Michel da Silva (se juntou em outubro de 2023)
+- Mateus Costa Pinto de Souza (se juntou em dezembro de 2023)
 
 ## Instalação
 
@@ -20,19 +20,19 @@ O jogo foi desenvolvido como parte de um projeto educacional e gamificado, ofere
 ### Uso
 
 
-# Documentation
+# Documentação
 
 * [Game Design Document](https://docs.google.com/document/d/1MJAvtc-u8YtQduGdIwTkxaIc_SQnSIh8XhgCba24fxk/edit?usp=sharing)
 
-# Development
+# Desenvolvimento
 
 * [Source Code](https://github.com/FernandoBMSouza/odisseia-espacial-vr)
 
 
-# Technologies
+# Tecnologias
 
 * [Unity](https://unity.com)
-  - [Version: 2020.3.43f1] (https://unity.com/releases/editor/archive)
+  - [Versão: 2020.3.43f1](https://unity.com/releases/editor/archive)
 
 
-# License
+# Licença
