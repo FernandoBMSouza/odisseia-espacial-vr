@@ -20,19 +20,19 @@ O jogo foi desenvolvido como parte de um projeto educacional e gamificado, ofere
 ### Uso
 
 
-# Documentação
+## Documentação
 
 * [Game Design Document](https://docs.google.com/document/d/1MJAvtc-u8YtQduGdIwTkxaIc_SQnSIh8XhgCba24fxk/edit?usp=sharing)
 
-# Desenvolvimento
+## Desenvolvimento
 
 * [Source Code](https://github.com/FernandoBMSouza/odisseia-espacial-vr)
 
 
-# Tecnologias
+## Tecnologias
 
 * [Unity](https://unity.com)
   - [Versão: 2020.3.43f1](https://unity.com/releases/editor/archive)
 
 
-# Licença
+## Licença
