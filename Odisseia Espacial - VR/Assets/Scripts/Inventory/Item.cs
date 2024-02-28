@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Item : MonoBehaviour
 {
@@ -44,6 +43,7 @@ public class Item : MonoBehaviour
     {
         if (collidingWithSlot)
         {
+            Debug.Log("Entrei no Slot");
             inSlot = true;
             currentSlot.itemInSlot = this.gameObject;
             transform.SetParent(currentSlot.transform, true);
@@ -52,6 +52,7 @@ public class Item : MonoBehaviour
         }
         else
         {
+            transform.parent = null;
             rb.isKinematic = false;
         }
     }
@@ -60,9 +61,9 @@ public class Item : MonoBehaviour
     {
         if(inSlot)
         {
-            // rb.isKinematic = false; --> Não precisa dessa linha pq passei ela pro else da InsertInSlot() pra resolver o erro
+            //rb.isKinematic = false; --> Não precisa dessa linha pq passei ela pro else da InsertInSlot() pra resolver o erro
             inSlot = false;
-            gameObject.transform.parent = null;
+            transform.parent = null;
 
             currentSlot.ResetColor();
             currentSlot.itemInSlot = null;
