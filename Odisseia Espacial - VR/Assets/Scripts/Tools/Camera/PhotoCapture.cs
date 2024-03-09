@@ -8,20 +8,16 @@ public class PhotoCapture : MonoBehaviour
     [Header("Photo Taker")]
     [SerializeField] private Image photoDisplayArea;
     [SerializeField] private GameObject photoFrame;
+    [SerializeField] private GameObject objectToCheck;
 
-    [Header("Flash Effect")]
-    [SerializeField] private GameObject cameraFlash;
-    [SerializeField] private float flashTime;
-
-    [Header("Flash Effect")]
-    [SerializeField] private Animator fadingAnimation;
-
+    private Camera mainCamera;
     private Texture2D screenCapture;
     private bool viewingPhoto;
 
     private void Start()
     {
         screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        mainCamera = Camera.main;
     }
 
     private void Update()
@@ -41,7 +37,6 @@ public class PhotoCapture : MonoBehaviour
 
     IEnumerator CapturePhoto()
     {
-        // CameraUI set false
         viewingPhoto = true;
 
         yield return new WaitForEndOfFrame();
@@ -51,6 +46,15 @@ public class PhotoCapture : MonoBehaviour
         screenCapture.ReadPixels(regionToRead, 0, 0, false);
         screenCapture.Apply();
         ShowPhoto();
+
+        if (ObjectIsVisibleInPhoto())
+        {
+            Debug.Log("O objeto está na foto!");
+        }
+        else
+        {
+            Debug.Log("O objeto NÃO está na foto!");
+        }
     }
 
     void ShowPhoto()
@@ -59,22 +63,27 @@ public class PhotoCapture : MonoBehaviour
         photoDisplayArea.sprite = photoSprite;
 
         photoFrame.SetActive(true);
-        StartCoroutine(CameraFlashEffect());
-        fadingAnimation.Play("PhotoFade");
-    }
-
-    IEnumerator CameraFlashEffect()
-    {
-        // Play some audio
-        cameraFlash.SetActive(true);
-        yield return new WaitForSeconds(flashTime);
-        cameraFlash.SetActive(false);
     }
 
     void RemovePhoto()
     {
         viewingPhoto = false;
         photoFrame.SetActive(false);
-        // CameraUI true
+    }
+
+    bool ObjectIsVisibleInPhoto()
+    {
+        // Obtem os planos do frustum da câmera principal
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(mainCamera);
+
+        // Testa se a caixa delimitadora (AABB) do objeto está dentro do frustum
+        if (GeometryUtility.TestPlanesAABB(planes, objectToCheck.GetComponent<Renderer>().bounds))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
