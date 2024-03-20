@@ -13,10 +13,8 @@ public class PhotoCapture : MonoBehaviour
     [Header("Raycast Distance Chack")]
     [SerializeField] private Transform player;
     [SerializeField] private Transform target;
-    [SerializeField] private float maxDistance = 10f;
     private RaycastHit hit;
     private bool isRaycastHitting = false;
-
 
     private Camera mainCamera;
     private Texture2D screenCapture;
@@ -42,19 +40,14 @@ public class PhotoCapture : MonoBehaviour
             }
         }
 
-        // Lance um raio do jogador para o objeto específico
-        if (Physics.Raycast(player.position, (target.position - player.position).normalized, out hit, maxDistance))
+        float distance = Vector3.Distance(target.position, player.position) * 1.2f;
+
+        if (Physics.Raycast(player.position, (target.position - player.position).normalized, out hit, distance))
         {
-            // Verifique se o objeto atingido é o objeto específico
             if (hit.transform == target)
-            {
-                // O objeto específico está dentro da distância máxima
                 isRaycastHitting = true;
-            }
             else
-            {
                 isRaycastHitting= false;
-            }
         }
     }
 
