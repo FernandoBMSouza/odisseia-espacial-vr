@@ -10,6 +10,14 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private GameObject photoFrame;
     [SerializeField] private GameObject objectToCheck;
 
+    [Header("Raycast Distance Chack")]
+    [SerializeField] private Transform player;
+    [SerializeField] private Transform target;
+    [SerializeField] private float maxDistance = 10f;
+    private RaycastHit hit;
+    private bool isRaycastHitting = false;
+
+
     private Camera mainCamera;
     private Texture2D screenCapture;
     private bool viewingPhoto;
@@ -31,6 +39,21 @@ public class PhotoCapture : MonoBehaviour
             else
             {
                 RemovePhoto();
+            }
+        }
+
+        // Lance um raio do jogador para o objeto específico
+        if (Physics.Raycast(player.position, (target.position - player.position).normalized, out hit, maxDistance))
+        {
+            // Verifique se o objeto atingido é o objeto específico
+            if (hit.transform == target)
+            {
+                // O objeto específico está dentro da distância máxima
+                isRaycastHitting = true;
+            }
+            else
+            {
+                isRaycastHitting= false;
             }
         }
     }
@@ -77,7 +100,7 @@ public class PhotoCapture : MonoBehaviour
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(mainCamera);
 
         // Testa se a caixa delimitadora (AABB) do objeto está dentro do frustum
-        if (GeometryUtility.TestPlanesAABB(planes, objectToCheck.GetComponent<Renderer>().bounds))
+        if (GeometryUtility.TestPlanesAABB(planes, objectToCheck.GetComponent<Renderer>().bounds) && isRaycastHitting)
         {
             return true;
         }

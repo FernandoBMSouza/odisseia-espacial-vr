@@ -2189,7 +2189,7 @@ Transform:
   m_GameObject: {fileID: 1160662066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.8, z: 12.91}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 13.1, y: 11.2, z: 2.086893}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -5008,6 +5008,9 @@ MonoBehaviour:
   photoDisplayArea: {fileID: 1645752853}
   photoFrame: {fileID: 1606306051}
   objectToCheck: {fileID: 1170959892}
+  player: {fileID: 1437508871}
+  target: {fileID: 1170959900}
+  maxDistance: 10
 --- !u!1 &2133605663
 GameObject:
   m_ObjectHideFlags: 0
