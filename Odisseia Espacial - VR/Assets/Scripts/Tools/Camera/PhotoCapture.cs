@@ -15,6 +15,9 @@ public class PhotoCapture : MonoBehaviour
     private RaycastHit hit;
     private bool isRaycastHitting = false;
 
+    [SerializeField] MissionsObject mission;
+    [SerializeField] QuestCanvas questCanvas;
+
     private Camera mainCamera;
     private Texture2D screenCapture;
     private bool viewingPhoto;
@@ -65,6 +68,7 @@ public class PhotoCapture : MonoBehaviour
         if (ObjectIsVisibleInPhoto())
         {
             Debug.Log("O objeto está na foto!");
+            questCanvas.UpdateCollectedItems();
         }
         else
         {

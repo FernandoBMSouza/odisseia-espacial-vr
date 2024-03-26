@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65024b5dece74cd42b650c52ed3bebdf, type: 3}
   m_Name: MissionSetting
   m_EditorClassIdentifier: 
-  missionName: Coletar
-  missionDescription: Colete 1 cubo
-  collectedItems: 0
+  missionName: Tirar Fotos
+  missionDescription: Tire uma foto do cubo.
+  collectedItems: 1
   totalItems: 1

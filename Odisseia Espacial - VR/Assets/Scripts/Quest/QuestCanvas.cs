@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class QuestCanvas : MonoBehaviour
 {
@@ -9,18 +11,24 @@ public class QuestCanvas : MonoBehaviour
     [SerializeField] TextMeshProUGUI missionName, missionDescription, missionObjective;
     [SerializeField] MissionsObject missionObject;
 
-    // Start is called before the first frame update
     void Start()
     {
+        missionObject.CollectedItems = 0;
         missionName.text = missionObject.MissionName;
         missionDescription.text = missionObject.MissionDescription;
-        missionObjective.text = "Coletados " + missionObject.CollectedItems.ToString() + " / " + missionObject.TotalItens.ToString();
+        missionObjective.text = "Finalizado " + missionObject.CollectedItems.ToString() + " / " + missionObject.TotalItens.ToString();
     }
 
     public void UpdateCollectedItems()
     {
-        missionObject.CollectedItems++;
-        missionObjective.text = "Coletados " + missionObject.CollectedItems.ToString() + " / " + missionObject.TotalItens.ToString();
+        if(missionObject.CollectedItems >= missionObject.TotalItens)
+        {
+            return;
+        }
+        else
+        {
+            missionObject.CollectedItems++;
+            missionObjective.text = "Finalizado " + missionObject.CollectedItems.ToString() + " / " + missionObject.TotalItens.ToString();
+        }
     }
-    
 }
