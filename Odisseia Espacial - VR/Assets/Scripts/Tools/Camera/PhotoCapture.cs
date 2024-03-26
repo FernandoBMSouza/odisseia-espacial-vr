@@ -8,7 +8,6 @@ public class PhotoCapture : MonoBehaviour
     [Header("Photo Taker")]
     [SerializeField] private Image photoDisplayArea;
     [SerializeField] private GameObject photoFrame;
-    [SerializeField] private GameObject objectToCheck;
 
     [Header("Raycast Distance Chack")]
     [SerializeField] private Transform player;
@@ -93,7 +92,7 @@ public class PhotoCapture : MonoBehaviour
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(mainCamera);
 
         // Testa se a caixa delimitadora (AABB) do objeto está dentro do frustum
-        if (GeometryUtility.TestPlanesAABB(planes, objectToCheck.GetComponent<Renderer>().bounds) && isRaycastHitting)
+        if (GeometryUtility.TestPlanesAABB(planes, target.GetComponent<Renderer>().bounds) && isRaycastHitting)
         {
             return true;
         }
